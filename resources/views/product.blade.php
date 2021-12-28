@@ -15,7 +15,6 @@
                 </a>
             </div>
             @endforeach
-
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"

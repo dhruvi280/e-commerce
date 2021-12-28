@@ -14,7 +14,7 @@ class ProductController extends Controller
         $product = Product::all();
         return view('product', ['product'=> $product]); 
     }
-    public function details($id){
+    public function details($id){  
         $product= Product::find($id);
         return view('detail',['products'=>$product]);
     }
@@ -30,14 +30,14 @@ class ProductController extends Controller
             $cart->product_id=$request->product_id;
             $cart->save();
             return redirect('/');
-            
         } else{
             return redirect('/login');
         }
         
     }
 
-    public function cartItems(){
-        $user_id=Session::get('user')['id'];
+    public static function cartItems(){
+        $userId=session()->getId(); 
+        return Cart::where('user_id',$userId)->count();
     }
 }
